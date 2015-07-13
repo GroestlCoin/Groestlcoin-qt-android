@@ -42,6 +42,9 @@
 #include <QStackedWidget>
 #include <QDateTime>
 #include <QMovie>
+#ifdef Q_OS_ANDROID
+#include <QDesktopServices>
+#endif
 #include <QTimer>
 #include <QDragEnterEvent>
 #if QT_VERSION < 0x050000
@@ -68,7 +71,9 @@ BitcoinGUI::BitcoinGUI(QWidget *parent) :
     rpcConsole(0),
     prevBlocks(0)
 {
+	#ifndef Q_OS_ANDROID
     restoreWindowGeometry();
+	#endif
     setWindowTitle(tr("GroestlCoin") + " - " + tr("Wallet"));
 #ifndef Q_OS_MAC
     QApplication::setWindowIcon(QIcon(":icons/bitcoin"));
@@ -80,7 +85,16 @@ BitcoinGUI::BitcoinGUI(QWidget *parent) :
     // Create wallet frame and make it the central widget
     walletFrame = new WalletFrame(this);
     setCentralWidget(walletFrame);
-
+	#ifdef Q_OS_ANDROID
+	QFont font;
+    font.setFamily(font.defaultFamily());
+    QRect rec = QApplication::desktop()->screenGeometry();
+    int fS=std::max(8,(int)rec.width()/80);
+    font.setPointSize(fS);
+    qApp->setFont(font);
+    walletFrame->setFixedWidth((int)rec.width());
+    walletFrame->setFixedHeight((int)(rec.height()*0.8));
+	#endif
     // Accept D&D of URIs
     setAcceptDrops(true);
 
