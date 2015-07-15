@@ -60,7 +60,7 @@
         <string>Create a new address</string>
        </property>
        <property name="text">
-        <string>&amp;New Address</string>
+        <string>&amp;New Addr</string>
        </property>
       </widget>
      </item>
@@ -70,7 +70,7 @@
         <string>Copy the currently selected address to the system clipboard</string>
        </property>
        <property name="text">
-        <string>&amp;Copy Address</string>
+        <string>&amp;Copy Addr</string>
        </property>
       </widget>
      </item>
@@ -90,7 +90,7 @@
         <string>Sign a message to prove you own a GroestlCoin address</string>
        </property>
        <property name="text">
-        <string>Sign &amp;Message</string>
+        <string>Sign &amp;Msg</string>
        </property>
       </widget>
      </item>
@@ -100,7 +100,7 @@
         <string>Verify a message to ensure it was signed with a specified GroestlCoin address</string>
        </property>
        <property name="text">
-        <string>&amp;Verify Message</string>
+        <string>&amp;Verify Msg</string>
        </property>
       </widget>
      </item>

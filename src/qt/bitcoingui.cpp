@@ -92,8 +92,10 @@ BitcoinGUI::BitcoinGUI(QWidget *parent) :
     int fS=std::max(8,(int)rec.width()/80);
     font.setPointSize(fS);
     qApp->setFont(font);
-    walletFrame->setFixedWidth((int)rec.width());
-    walletFrame->setFixedHeight((int)(rec.height()*0.8));
+    this->setFixedWidth((int)rec.width());
+    this->setFixedHeight((int)(rec.height()*0.8));
+    //walletFrame->setFixedWidth((int)rec.width());
+    //walletFrame->setFixedHeight((int)(rec.height()*0.8));
 	#endif
     // Accept D&D of URIs
     setAcceptDrops(true);
